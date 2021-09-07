@@ -1,0 +1,113 @@
+html {
+    /* padding & border を幅・高さに含める */
+    box-sizing: border-box;
+}
+
+
+/* ヘッダー */
+
+header {
+    background-color: black;
+}
+
+.header-container {
+    padding: 20px 20px 10px 20px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header-container a {
+    color: white;
+    font-size: 48px;
+    text-decoration: underline;
+    text-decoration-color: #87CEFA;
+}
+
+
+/* メニューバー */
+
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: black;
+    border-bottom: 3px solid #87CEFA;
+    height: 50px;
+}
+
+.nav-container {
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+    width: 1000px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0 10px;
+}
+
+nav li {
+    flex: 1 0 auto;
+}
+
+nav li a {
+    display: block;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+
+nav li a:hover {
+    background-color: #87CEFA;
+}
+
+.main-container {
+    background: black;
+    padding: 0 0 40px 0;
+}
+
+.resize img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* フッター */
+
+footer {
+    background-color: black;
+    width: 100%;
+    text-align: left;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 50px;
+    margin-top: top;
+}
+
+.footer a {
+    color: white;
+    font-size: 36px;
+    font-weight: normal;
+    margin: 0;
+}
+
+menu {
+    margin: 20px 0 12px;
+    padding: 0;
+}
+
+footer a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+footer a:hover {
+    color: #87CEFA;
+}
