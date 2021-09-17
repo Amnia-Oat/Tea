@@ -16,12 +16,14 @@ class HerbteasTableSeeder extends Seeder
             'mood_id' => '1',
             'name' => 'ローズマリー',
             'feature' => '刺激的な香りと飲み口がさっぱり。集中力UPが期待でき、目覚めの一杯にも最適。',
+            // 'image' => '/public/picture/rosemary.jpeg',
         ]);
         DB::table('herbteas')->insert([
             'id' => '2',
             'mood_id' => '1',
             'name' => 'ペパーミントティー',
             'feature' => 'ハーブティーの中でも爽やかな味わい。香りが強いため、目覚めの一杯におすすめ。',
+            // 'image' => '/public/picture/peppermint.jpeg',
         ]);
         DB::table('herbteas')->insert([
             'id' => '3',

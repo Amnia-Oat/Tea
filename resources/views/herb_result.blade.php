@@ -2,27 +2,55 @@
 
 @section('content')
 
+    <div class="header-container">
+        <p>
+            診断<br>
+            TEST
+        </p>
+    </div>
+    
     <!-- このアプリ内で記述されたデータだと保証するためのもの/セキュリティ -->
     @csrf
-    <!-- 診断2の結果 気分にあうハーブティー -->
-    <div class="">
-        <div class="">
-            <p>診断結果</p>
-        </div>
-        <div class="" id="mood">
-            <p>{{ $mood->mood }}</p>
-        </div>
-        <div class="">
-            <p>{{ $mood->feature }}</p>
-        </div>
-        @foreach($herbteas as $herbtea)
-            <div class="">
-                <p>{{ $herbtea->name }}</p>
+    <div class="main-layer">
+        <div class="main-layer-green"></div>
+        <div class="main-layer-yellow"></div>
+        <div class="main-layer-container">
+            <div class="QA-box" style="top: 100px; left: 30%;">
+                <p style="font-size: 20px;">
+                    あなたの気分は...
+                </p>
+                <p style="font-size: 25px; text-align: center;">
+                    {{ $mood->mood }}
+                </p>
+                <p id="mood" style="font-size: 20px; text-align: center;">
+                    {{ $mood->feature }}
+                </p>
             </div>
-            <div class="">
-                <p>{{ $herbtea->feature }}</p>
-            </div>
-        @endforeach
+            @foreach($herbteas as $herbtea)
+                @if($herbtea->id == 1 || $herbtea->id == 3 || $herbtea->id == 5 || $herbtea->id == 7)
+                    <div class="asw-image1">
+                        <img src="{{ asset('picture/peppermint.jpeg') }}">
+                    </div>
+                    <div class="asw-box1">
+                        <p style="font-size: 20px;">{{ $herbtea->name }}</p>
+                        <p style="font-size: 19px;">{{ $herbtea->feature }}</p>
+                    </div>
+                @endif
+                @if($herbtea->id == 2 || $herbtea->id == 4 || $herbtea->id == 6 || $herbtea->id == 8)
+                    <div class="asw-image2">
+                        <img src="{{ asset('picture/peppermint.jpeg') }}">
+                    </div>
+                    <div class="asw-box2">
+                        <p style="font-size: 20px;">{{ $herbtea->name }}</p>
+                        <p style="font-size: 19px;">{{ $herbtea->feature }}</p>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        
+    <!-- Script -->
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    
     </div>
 
 @endsection

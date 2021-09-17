@@ -18,6 +18,7 @@ class CreateHerbteasTable extends Migration
             $table->integer('mood_id');
             $table->char('name', 20);
             $table->char('feature', 100);
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

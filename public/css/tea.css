@@ -1,85 +1,279 @@
-html {
+html * {
     /* padding & border を幅・高さに含める */
     box-sizing: border-box;
 }
 
-
-/* ヘッダー */
-
-header {
-    background-color: black;
+.header-menu {
+    background-color: #6b7b6e;
+    width: 100%;
+    height: 70px;
+    text-align: right;
 }
 
 .header-container {
-    padding: 20px 20px 10px 20px;
-    margin: 0 auto;
+    background-color: #6b7b6e;
     width: 100%;
+    height: 200px;
 }
 
-.header-container a {
-    color: white;
-    font-size: 48px;
-    text-decoration: underline;
-    text-decoration-color: #87CEFA;
+.header-container p {
+    color: #ffffff;
+    text-align: left;
+    padding: 50px 0 0 100px;
+    margin: 0 0;
+    line-height: 40px;
+    font-size: 25px;
+    font-family: "Copperplate";
 }
 
 
-/* メニューバー */
+/* ユーザーアイコン */
 
-body {
-    margin: 0;
+.user {
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    background-color: #d6e9ca;
+    width: 1em;
+    height: 1em;
+    font-size: 40px;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 15px 70px 10px 10px;
 }
 
-nav {
-    background-color: black;
-    border-bottom: 3px solid #87CEFA;
-    height: 50px;
+.user::before,
+.user::after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: #6b7b6e;
+    opacity: 80%;
+    content: "";
 }
 
-.nav-container {
-    margin: 0 auto;
-    padding: 0 20px 0 20px;
-    width: 1000px;
+.user::before {
+    top: 0.15em;
+    width: 0.4em;
+    height: 0.4em;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0 10px;
+.user::after {
+    bottom: -0.4em;
+    width: 0.8em;
+    height: 0.8em;
 }
 
-nav li {
-    flex: 1 0 auto;
-}
 
-nav li a {
+/* ナビゲーション */
+
+.hamburger {
     display: block;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
+    position: fixed;
+    z-index: 3;
+    border-radius: 50%;
+    background-color: #d6e9ca;
+    right: 13px;
+    top: 12px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
     text-align: center;
-    font-size: 18px;
-    color: white;
+    margin: 10px 10px 10px 10px;
 }
 
-nav li a:hover {
-    background-color: #87CEFA;
+
+/* ナビ三本線 */
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    left: 8px;
+    background: #6b7b6e;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
 }
 
-.main-container {
-    background: black;
-    padding: 0 0 40px 0;
+.hamburger span:nth-child(1) {
+    top: 10px;
 }
 
-.resize img {
-    max-width: 100%;
-    height: auto;
+.hamburger span:nth-child(2) {
+    top: 20px;
 }
+
+.hamburger span:nth-child(3) {
+    top: 30px;
+}
+
+
+/* ナビを開いている状態 */
+
+.hamburger.active span:nth-child(1) {
+    top: 20px;
+    left: 8px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+}
+
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3) {
+    top: 20px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+}
+
+.nav-content {
+    position: fixed;
+    z-index: 2;
+    top: 80px;
+    right: -180px;
+    color: #ffffff;
+    text-align: center;
+    transform: translateX(100%);
+    transition: all 0.6s;
+    width: 50%;
+    height: 100%;
+}
+
+.nav-content ul {
+    background: #383c3c;
+    opacity: 80%;
+    margin: 0 auto;
+    padding: 0;
+    width: 50%;
+}
+
+.nav-content ul li {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid #cee4ae;
+}
+
+.nav-content ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.nav-content ul li:hover {
+    background: #cee4ae;
+}
+
+.nav-content ul li a {
+    display: block;
+    color: #ffffff;
+    padding: 1em 0;
+    text-decoration: none;
+}
+.nav-content ul li a:hover {
+    display: block;
+    color: #6b7b6e;
+    padding: 1em 0;
+    text-decoration: none;
+}
+
+
+/* このクラスを、jQueryで付与・削除する */
+
+.nav-content.active {
+    transform: translateX(0%);
+}
+
+
+/* ホーム画面 */
+
+.homeArea {
+    position: relative;
+    margin: 0;
+    height: 500px;
+    width: 100%;
+    background-color: #6b7b6e;
+    display: flex;
+    text-align: center;
+}
+
+
+/* ホーム画面の文字 */
+
+.homeArea p {
+    position: absolute;
+    padding: 100px 10px 100px 10px;
+    margin: 1em 1em;
+    width: 40%;
+    height: 80%;
+    border: double 5px #ffffff;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: "Zapfino", cursive;
+    display: inline-block;
+}
+
+/* メイン画面 */
+
+.main-layer {
+    position: relative;
+    overflow: hidden;
+    min-height: 1250px;
+    max-height: 100%;
+}
+
+.main-layer-green,
+.main-layer-yellow {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .3;
+}
+
+.main-layer-green {
+    left: 0;
+    background-color: #b0ca71;
+    z-index: 1;
+    -webkit-transform: skewY(28deg) skewX(-28deg) translateX(-100%);
+    transform: skewY(28deg) skewX(-28deg) translateX(-100%);
+    transition: .5s all ease-in;
+}
+
+.main-layer-yellow {
+    right: 0;
+    height: 140%;
+    background: #f8e58c;
+    z-index: 2;
+    -webkit-transform: skewY(118deg) skewX(24deg) translateX(-100%);
+    transform: skewY(118deg) skewX(24deg) translateX(-100%);
+    transition: 1s all ease-in;
+}
+
+.main-layer-container {
+    position: relative;
+    z-index: 3;
+}
+
+.main-layer-green.is-active {
+    -webkit-transform: skewY(28deg) skewX(-28deg) translateX(0);
+    transform: skewY(28deg) skewX(-28deg) translateX(0);
+}
+
+.main-layer-yellow.is-active {
+    -webkit-transform: skewY(118deg) skewX(-28deg) translateX(0);
+    transform: skewY(118deg) skewX(-28deg) translateX(0);
+}
+
 
 /* フッター */
 
 footer {
-    background-color: black;
+    background-color: #6b7b6e;
     width: 100%;
     text-align: left;
     font-family: sans-serif;
@@ -89,14 +283,14 @@ footer {
     margin-top: top;
 }
 
-.footer a {
-    color: white;
+footer p {
+    color: black;
     font-size: 36px;
     font-weight: normal;
     margin: 0;
 }
 
-menu {
+.footer-menu {
     margin: 20px 0 12px;
     padding: 0;
 }
@@ -109,5 +303,5 @@ footer a {
 }
 
 footer a:hover {
-    color: #87CEFA;
+    color: #bee2af;
 }

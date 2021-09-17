@@ -2,24 +2,30 @@
 
 @section('content')
 
+    <!-- ヘッダータイトル -->
+    <div class="header-container">
+        <p>診断<br>TEST</p>
+    </div>
     <!-- このアプリ内で記述されたデータだと保証するためのもの/セキュリティ -->
     @csrf
-    <!-- 診断 1 自分に合う紅茶-->
-    <div class="">
-        <div class="">
-            <a id="number">質問</a>
-            <p id="question">質問内容</p>
-        </div>
-        <!-- required:入力必須-->
-        <div class="">
-            <label><input id="radio1" type="radio" name="question" required><span id="choice_1">選択肢1</span></label><br>
-        </div>
-        <div class="">
-            <label><input id="radio2" type="radio" name="question" required><span id="choice_2">選択肢2</span></label><br>
+    <div class="test-home-parent">
+        <div class="test-children-box"></div>
+        <div class="opacity">
+            <img src="{{ asset('picture/tea-test.jpeg') }}" style="width: 100%; min-width: 1200px; min-height: 500px; padding: 50px 250px 0 200px; position: relative; z-index: 1;">
         </div>
     </div>
-    <div class="">
-        <button id="button" onclick="next()">次へ</button>
+    <!-- 診断 1 自分に合う紅茶-->
+    <div class="QA-box">
+        <p>Question <a id="number">番号</a></p>
+        <p id="question" style="font-size: 20px;">質問内容</p>
+        <div class="radio-space">
+            <!-- required:入力必須-->
+            <input id="radio1" type="radio" name="question" required><label for="radio1" class="radio-label"><span id="choice_1" style="font-size: 20px;">選択肢1</span></label><br>
+            <input id="radio2" type="radio" name="question" required><label for="radio2" class="radio-label"><span id="choice_2" style="font-size: 20px;">選択肢2</span></label><br>
+            <div class="next-btn">
+                <button id="button" onclick="next()">次へ</button>
+            </div>
+        </div>
     </div>
     
     <script>
@@ -40,7 +46,7 @@
         /* データベースよりデータをqsへ取得 */
         let qs = @json($questions);
         
-        number.innerHTML = '質問'+cnt;
+        number.innerHTML = cnt;
         question.innerHTML = qs[num].question;
         choice1.innerHTML = qs[num].choice_1;
         choice2.innerHTML = qs[num].choice_2;
@@ -57,7 +63,7 @@
                         choice2.innerHTML = qs[num].choice_2;
                         radio1.checked = false;
                         cnt++;
-                        number.innerHTML = '質問'+cnt;
+                        number.innerHTML = cnt;
                         break;
                     case 1:
                         /* 質問2から質問4へ */
@@ -68,7 +74,7 @@
                         choice2.innerHTML = qs[num].choice_2;
                         radio1.checked = false;
                         cnt++;
-                        number.innerHTML = '質問'+cnt;
+                        number.innerHTML = cnt;
                         button.innerHTML = "診断結果";
                         break;
                     case 2:
@@ -79,7 +85,7 @@
                         choice2.innerHTML = qs[num].choice_2;
                         radio1.checked = false;
                         cnt++;
-                        number.innerHTML = '質問'+cnt;
+                        number.innerHTML = cnt;
                         button.innerHTML = "診断結果";
                         break;
                     case 3:
@@ -118,7 +124,7 @@
                         choice2.innerHTML = qs[num].choice_2;
                         radio2.checked = false;
                         cnt++;
-                        number.innerHTML = '質問'+cnt;
+                        number.innerHTML = cnt;
                         break;
                     case 1:
                         /* 質問2から質問5へ */
@@ -128,7 +134,7 @@
                         choice2.innerHTML = qs[num].choice_2;
                         radio2.checked = false;
                         cnt++;
-                        number.innerHTML = '質問'+cnt;
+                        number.innerHTML = cnt;
                         break;
                     case 2:
                         /* 質問3から質問7へ */
@@ -138,7 +144,7 @@
                         choice2.innerHTML = qs[num].choice_2;
                         radio2.checked = false;
                         cnt++;
-                        number.innerHTML = '質問'+cnt;
+                        number.innerHTML = cnt;
                         break;
                     case 3:
                         /* 質問4から診断結果2へ */

@@ -2,24 +2,32 @@
 
 @section('content')
     
+    <div class="header-container">
+        <p>
+            ブログ<br>
+            BLOG
+        </p>
+    </div>
+    
     <body>
         <h1>Blog Name</h1>
-        <form action="/create" method="post">
+        <form action="/blog" method="post">
             @csrf
             <div class="title">
                 <h2>Title</h2>
-                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
-                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+                <input type="text" name="blog[title]" placeholder="タイトル" value="{{ old('blog.title') }}"/>
+                <p class="title__error" style="color:red">{{ $errors->first('blog.title') }}</p>
             </div>
             <div class="body">
                 <h2>Body</h2>
-                <textarea name="post[body]" placeholder="今日も1日お疲れ様でした。" value="{{ old('post.body') }}"></textarea>
-                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
-
+                <textarea name="blog[body]" placeholder="今日も1日お疲れ様でした。" value="{{ old('blog.body') }}"></textarea>
+                <p class="body__error" style="color:red">{{ $errors->first('blog.body') }}</p>
             </div>
-                <input type="submit" value="投稿"/>
+            <input type="file" name="picture" value="写真">
+            <br>
+            <input type="submit" value="投稿"/>
         </form>
-        <div class='back'>[<a href='/'>back</a>]</div>
+        <div class='back'>[<a href='/blog'>back</a>]</div>
     </body>
 
 @endsection

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 /* どこにあるクラス(モデル)を使うかの住所(定義) */
 /* ホーム画面 */
-use App\Post;
 
 /* 診断画面 */
 use APP\Test;
@@ -13,20 +12,27 @@ use App\Tea;
 use App\Herbq;
 use App\Mood;
 
+// ブログ画面
+use App\Blog;
+use App\BlogRequest;
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    
     /* Modelは単数, tableは複数表記 */
-    public function index(Post $post)
+    public function home()
     {
+        // viewsの中にあるbladeが渡される 
+        // viewメソッド -> viewsフォルダまでのパスが設定されてる
         return view('home');
     }
     
     /* table, Model には数字を使わない - 中身が一目でわかるような名前をつけること */
     /* 数字だと内容がわかりづらいため、丁寧に記述する！ */
     /* 診断画面 */
-    public function test(Post $post)
+    public function test()
     {
         return view('test');    
     }
@@ -56,7 +62,56 @@ class PostController extends Controller
     {
         $mood = Mood::find($id);
         $herbteas = Mood::find($id)->herbteas;
-        return view('herb_result',['mood' => $mood, 'herbteas' => $herbteas]);
+        return view('herb_result',[
+            'mood' => $mood,
+            'herbteas' => $herbteas
+            ]);
+    }
+    
+    /* ブログ画面 */
+    public function blog(Blog $blog)
+    {
+        return view('blog', ['blogs' => $blog->getPaginateByLimit()]);
+    }
+    
+    /* ブログ一覧 */
+    public function show(Blog $blog)
+    {
+        // 'blog' がviewで呼び出す変数
+        return view('show')->with(['blog' => $blog]);
+    }
+    
+    /* ブログ作成・投稿*/
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store(BlogRequest $request, Blog $blog)
+    {
+        $input_blog = $request['blog'];
+        $blog->fill($input_blog)->save();
+        return redirect('/blog/' . $blog->id);
+    }
+    
+    /* ブログ編集・更新 */
+    public function edit(Blog $blog)
+    {
+        return view('edit')->with(['blog' => $blog]);
+    }
+    
+    public function update(BlogRequest $request, Blog $blog)
+    {
+        $input_blog = $request['blog'];
+        $blog->fill($input_blog)->save();
+        return redirect('/blog/' . $blog->id);
+    }
+    
+    /* ブログ削除 */
+    public function destroy(Blog $blog)
+    {
+        $blog->delete();
+        return redirect('/blog');
     }
 
 }

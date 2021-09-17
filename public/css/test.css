@@ -1,29 +1,308 @@
 /* 診断画面 */
-/*.test-body {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    position: relative;*/
-/*    background:*/
-/*        linear-gradient(*/
-/*        );*/
-/*}*/
+
+.test-home-parent {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background: #e5e4e6;
+}
+
+.test-children-box {
+    position: absolute;
+    top: -50px;
+    left: 40%;
+    width: 60%;
+    height: 500px;
+    background-color: #cee4ae;
+    opacity: 90%;
+}
+
+
+/* 透明度 */
+
+.opacity {
+    opacity: 0.8;
+    filter: blur(2px);
+}
+
+.btn-container {
+    position: absolute;
+    top: 160px;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.btn {
+    /* calc -> 幅半分（50%）から、25pxの固定幅を足した数値 */
+    position: absolute;
+    display: inline-block;
+    width: 277px;
+    height: 50px;
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+    /* uppercase -> 全ての文字を大文字に */
+    text-transform: uppercase;
+    /* マウスポインターが要素の上にいるときに表示されるマウスカーソルの種類 */
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.btn svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.btn svg rect {
+    /* テキストの角の太さ(文字周りのコーティングみたいなもの) */
+    stroke-width: 4;
+    /* 線の間隔を指定・線が全て埋まるまでの数値 */
+    stroke-dasharray: 353, 0;
+    /* 線の始まりの位置を指定(dasharray値から0までアニメーションを動かす) */
+    stroke-dashoffset: 0;
+    /* 変化させるプロパティ, 変化させる秒数, 変化のさせ方 */
+    transition: all 600ms ease;
+    /* 対応していないブラウザがあった場合 */
+    -webkit-transition: all 600ms ease;
+}
+
+.btn span {
+    background: #bee2af;
+    background: linear-gradient(to right, #FAF9FE 0%, #bee2af 100%);
+    /* 対応していないブラウザがあった場合 */
+    background: -webkit-linear-gradient(left, #FAF9FE 0%, #bee2af 100%);
+    background: -moz-linear-gradient(left, #FAF9FE 0%, #bee2af 100%);
+    /* 画像の彩度・明度等を設定 opacity -> 透明度 */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#87CEFA', endColorstr='#ffffff', GradientType=1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn:hover svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 196, 543;
+    stroke-dashoffset: 437;
+    z-index: 10;
+}
 
 /* 診断画面 選択ボタン */
 .circle-btn {
     display: inline-block;
+    margin-right: 10px;
     text-decoration: none;
-    color: #668ad8;
+    color: #FAF9FE;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
     width: 120px;
     height: 120px;
     line-height: 120px;
     border-radius: 50%;
-    border: double 4px #668ad8;
+    border: double 7px #FAF9FE;
     text-align: center;
     overflow: hidden;
-    transition: .6s;
+    transition: .2s ease-in-out;
+}
+
+.btn-animation {
+    position: absolute;
+    top: 90px;
+    width: 350px;
+    height: 100px;
+    margin: 0 20px 0 15px;
+    /* じわっとボタンを表示する */
+    animation: fadeIn 3s ease 0s 1 normal;
+    -webkit-animation: fadeIn 3s ease 0s 1 normal;
+    z-index: 20;
+}
+
+
+/* じわっとボタンが表示される */
+
+@keyframes fadeIn {
+    /* 始め */
+    0% {
+        opacity: 0;
+    }
+    /* 終わり */
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    /* 始め */
+    0% {
+        opacity: 0;
+    }
+    /* 終わり */
+    100% {
+        opacity: 1;
+    }
 }
 
 .circle-btn:hover {
-    -webkit-transform: rotateY(360deg);
-    transform: rotateY(360deg);
+    transform: scale(1.1) rotate(-15deg);
+}
+
+
+/* 質問・答えボックス */
+
+.QA-box {
+    position: absolute;
+    top: 350px;
+    left: 35%;
+    min-width: 600px;
+    max-width: 650px;
+    color: #6b7b6e;
+    background: #ffffff;
+    opacity: 95%;
+    border: 4px double #6b7b6e;
+    box-shadow: #000000;
+}
+
+.QA-box p {
+    font-size: 30px;
+    font-family: "Copperplate";
+    padding: 0 20px 10px 30px;
+}
+
+
+/* ラジオボタン */
+
+.radio-space {
+    padding: 0 0 10px 50px;
+    line-height: 45px;
+    float: left;
+    width: 500px;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+.radio-label {
+    cursor: pointer;
+    padding-left: 30px;
+    position: relative;
+}
+
+.radio-label::before,
+.radio-label::after {
+    content: '';
+    display: block;
+    position: absolute;
+}
+
+.radio-label::before {
+    background-color: #ffffff;
+    border-radius: 0%;
+    border: 1px solid #6b7b6e;
+    height: 20px;
+    width: 20px;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 5px;
+}
+
+.radio-label::after {
+    border-bottom: 2px solid #6b7b6e;
+    border-left: 2px solid #6b7b6e;
+    opacity: 0;
+    height: 5px;
+    width: 10px;
+    transform: rotate(-45deg);
+    top: 2px;
+    left: 10px;
+}
+
+input:checked+.radio-label::after {
+    opacity: 1;
+}
+
+
+/* 次へ・診断結果ボタン */
+
+.next-btn {
+    text-align: right;
+    padding: 10px 10px;
+}
+
+.next-btn button {
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 20px;
+    line-height: 1em;
+    border: 2px solid #6b7b6e;
+    border-radius: 0;
+    background: #ffffff;
+}
+
+.next-btn button:hover {
+    color: #ffffff;
+    background: #6b7b6e;
+}
+
+/* 診断結果画面 */
+
+.asw-image1 img {
+    position: absolute;
+    top: 400px;
+    left: 26%;
+    width: 500px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.asw-box1 {
+    position: absolute;
+    top: 450px;
+    left: 55%;
+    width: 400px;
+    height: 200px;
+    color: #6b7b6e;
+    background: #ffffff;
+    opacity: 95%;
+    border: 4px double #6b7b6e;
+    box-shadow: #000000;
+}
+
+.asw-box1 p {
+    font-size: 20px;
+    font-family: "Copperplate";
+    padding: 0 20px 10px 30px;
+}
+
+.asw-image2 img {
+    position: absolute;
+    top: 800px;
+    left: 26%;
+    width: 500px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.asw-box2 {
+    position: absolute;
+    top: 850px;
+    left: 55%;
+    width: 400px;
+    height: 200px;
+    color: #6b7b6e;
+    background: #ffffff;
+    opacity: 95%;
+    border: 4px double #6b7b6e;
+    box-shadow: #000000;
+}
+
+.asw-box2 p {
+    font-size: 20px;
+    font-family: "Copperplate";
+    padding: 0 20px 10px 30px;
 }

@@ -6,27 +6,35 @@
     <meta charset="UTF=8">
     <title>Tea</title>
     <link rel="stylesheet" href="{{ asset('css/tea.css') }}">
-</head>
+    <link rel="stylesheet" href="{{ asset('css/test.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>
 
-<header>
-    <div class="header-container">
-        <a>Take a Break</a>
+</head>
+<div class="header-menu">
+    <!-- メニューバー -->
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-</header>
-<nav>
-    <div class="nav-container">
-        <ul>
-            <li><a href="/">TOP</a></li>
-            <li><a href="/about">お茶について</a></li>
-            <li><a href="/test">診断</a></li>
-            <li><a href="/blog">ブログ</a></li>
-            <li><a href="/contact">お問い合わせ</a></li>
-        </ul>
-    </div>
-</nav>
-<main>
-    @yield('content')
-</main>
+    <nav>
+        <div class="nav-content">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/about">ABOUT</a></li>
+                <li><a href="/test">TEST</a></li>
+                <li><a href="/blog">BLOG</a></li>
+                <li><a href="/contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- ユーザーアイコン -->
+    <div class="user"></div>
+</div>
+
+@yield('content')
+
 <footer>
 
 </footer>
