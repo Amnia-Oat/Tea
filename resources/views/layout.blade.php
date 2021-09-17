@@ -12,25 +12,27 @@
 
 </head>
 <div class="header-menu">
-    <!-- メニューバー -->
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav>
-        <div class="nav-content">
-            <ul>
-                <li><a href="/">HOME</a></li>
-                <li><a href="/about">ABOUT</a></li>
-                <li><a href="/test">TEST</a></li>
-                <li><a href="/blog">BLOG</a></li>
-                <li><a href="/contact">CONTACT</a></li>
-            </ul>
+    <div class="menu">
+        <!-- メニューバー -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </nav>
-    <!-- ユーザーアイコン -->
-    <div class="user"></div>
+        <nav>
+            <div class="nav-content">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/about">ABOUT</a></li>
+                    <li><a href="/test">TEST</a></li>
+                    <li><a href="/blog">BLOG</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ユーザーアイコン -->
+        <div class="user"></div>
+    </div>
 </div>
 
 @yield('content')

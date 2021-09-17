@@ -11,7 +11,8 @@
     
     <body>
         <h1>Blog Name</h1>
-        <form action="/blog" method="post">
+        <!-- enctype="multipart/form-data 画像・動画・音声等のファイルをアップロードする際に必要 -->
+        <form action="/blog" method="post" enctype="multipart/form-data">
             @csrf
             <div class="title">
                 <h2>Title</h2>
@@ -27,7 +28,7 @@
             <br>
             <input type="submit" value="投稿"/>
         </form>
-        <div class='back'>[<a href='/blog'>back</a>]</div>
+        <div class='back'><a href='/blog'>back</a></div>
     </body>
 
 @endsection

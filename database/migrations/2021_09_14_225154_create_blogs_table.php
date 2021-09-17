@@ -20,7 +20,7 @@ class CreateBlogsTable extends Migration
             $table->string('image_path')->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
-            $table->timestamp('deleted_at')->useCurrent()->nullable();
+            $table->softDeletes();
         });
     }
 

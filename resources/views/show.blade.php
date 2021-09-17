@@ -20,10 +20,11 @@
         </form>
         <div class='post'>
             <h2 class="title">{{ $blog->title }}</h2>
+            <img src="{{ $blog->image_path }}">
             <p class='body'>{{ $blog->body }}</p>  
             <p class='updated_at'>{{ $blog->updated_at }}</p>
         </div>
-        <div class='back'>[<a href='/'>back</a>]</div>
+        <div class='back'>[<a href='/blog'>back</a>]</div>
             
         <script>
             function deletePost(e){
