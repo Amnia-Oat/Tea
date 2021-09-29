@@ -17,6 +17,7 @@ class CreateTeasTable extends Migration
             $table->bigIncrements('id');
             $table->char('name', 20);
             $table->char('feature', 100);
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

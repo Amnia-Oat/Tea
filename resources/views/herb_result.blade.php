@@ -29,7 +29,7 @@
             @foreach($herbteas as $herbtea)
                 @if($herbtea->id == 1 || $herbtea->id == 3 || $herbtea->id == 5 || $herbtea->id == 7)
                     <div class="asw-image1">
-                        <img src="{{ asset('picture/peppermint.jpeg') }}">
+                        <img src="{{ $herbtea->image_path }}">
                     </div>
                     <div class="asw-box1">
                         <p style="font-size: 20px;">{{ $herbtea->name }}</p>
@@ -38,7 +38,7 @@
                 @endif
                 @if($herbtea->id == 2 || $herbtea->id == 4 || $herbtea->id == 6 || $herbtea->id == 8)
                     <div class="asw-image2">
-                        <img src="{{ asset('picture/peppermint.jpeg') }}">
+                        <img src="{{ $herbtea->image_path }}">
                     </div>
                     <div class="asw-box2">
                         <p style="font-size: 20px;">{{ $herbtea->name }}</p>
@@ -46,10 +46,15 @@
                     </div>
                 @endif
             @endforeach
+            <div class="back-button-container" style="top: 1150px;">
+                <div class="back-btn">
+                    <a class="back-btn" href="/test/herb">Try Again</a>
+                </div>
+            </div>
         </div>
         
-    <!-- Script -->
-    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+        <!-- Script -->
+        <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
     
     </div>
 

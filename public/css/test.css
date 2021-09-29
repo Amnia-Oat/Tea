@@ -250,6 +250,29 @@ input:checked+.radio-label::after {
 }
 
 /* 診断結果画面 */
+.tea-asw-img img{
+    position: absolute;
+    top: 300px;
+    left: 26%;
+    width: 500px;
+    height: 300px;
+    object-fit: contain;
+}
+.tea-asw {
+    position: absolute;
+    top: 340px;
+    left: 55%;
+    width: 430px;
+    height: auto;
+    color: #6b7b6e;
+    background: #ffffff;
+    opacity: 95%;
+    border: 4px double #6b7b6e;
+    box-shadow: #000000;
+}
+.tea-asw p {
+    padding: 10px 20px 20px 20px;
+}
 
 .asw-image1 img {
     position: absolute;
@@ -265,7 +288,7 @@ input:checked+.radio-label::after {
     top: 450px;
     left: 55%;
     width: 400px;
-    height: 200px;
+    height: auto;
     color: #6b7b6e;
     background: #ffffff;
     opacity: 95%;
@@ -293,7 +316,7 @@ input:checked+.radio-label::after {
     top: 850px;
     left: 55%;
     width: 400px;
-    height: 200px;
+    height: auto;
     color: #6b7b6e;
     background: #ffffff;
     opacity: 95%;
@@ -305,4 +328,13 @@ input:checked+.radio-label::after {
     font-size: 20px;
     font-family: "Copperplate";
     padding: 0 20px 10px 30px;
+}
+
+.back-button-container {
+    position: absolute;
+    top: 650px;
+    left: 33%;
+    min-width: 600px;
+    max-width: 650px;
+    background: none;
 }

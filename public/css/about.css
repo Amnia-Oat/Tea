@@ -1,0 +1,176 @@
+/* お茶について */
+
+.about {
+    margin: auto;
+    margin-bottom: 100px;
+    box-sizing: border-box;
+    width: 100%;
+    max-height: auto;
+    border-radius: 10px;
+}
+
+.about div {
+    box-sizing: border-box;
+    background: #FAF9FE;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    width: 250px;
+    height: 350px;
+    margin: 100px 2.333333333% 0 3.333333333%;
+    float: left;
+}
+
+.about:after {
+    display: block;
+    clear: both;
+    height: 0px;
+    visibility: hidden;
+    content: "";
+}
+
+.about h1 {
+    margin: 0;
+    padding: 30px 0;
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 10px 10px 0 0;
+    line-height: 40px;
+    list-style: none;
+    text-align: center;
+    background-color: darkseagreen;
+}
+
+.about p {
+    padding: 10px 10px 10px 40px ;
+}
+
+.about-btn {
+    text-align: center;
+}
+
+.about a {
+    display: block;
+    line-height: 40px;
+    margin: auto 20px 20px 20px;
+    color: #ffffff;
+    background-color: #6b7b6e;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.tea-leaf-img img {
+    width: 70%;
+    height: 70%;
+    margin: 40px 25% 20px 25%;
+    text-align: center;
+}
+
+.tea-img img {
+    height: 70%;
+    margin: 40px 25% 20px 25%;
+    text-align: center;
+}
+
+.about-tea-title {
+    margin: 0 2.5% 0 4%;
+    height: auto;
+}
+
+.about-tea-title p {
+    border: 1px solid #6b7b6e;
+    position: relative;
+    font-size: 20px;
+    color: #fdfef9;
+    padding: 1.5rem 2rem;
+    background: #6b7b6e;
+}
+
+.about-tea-title p:before {
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    content: "";
+    border-width: 14px 12px 0 12px;
+    border-style: solid;
+    border-color: #6b7b6e transparent transparent transparent;
+}
+
+.about-tea-title p:after {
+    position: absolute;
+    bottom: -13px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    content: "";
+    border-width: 14px 12px 0 12px;
+    border-style: solid;
+    border-color: #6b7b6e transparent transparent transparent;
+}
+
+.about-tea-box {
+    background-color: #fdfef9;
+    border: 1px solid #6b7b6e;
+    margin: 0 5% 0 5%;
+    height: auto;
+}
+
+.about-tea-box p {
+    padding: 40px 40px 40px 50px;
+}
+
+.about-tea-box img {
+    float: left;
+    padding: 40px 0 40px 40px;
+    width: 60%;
+    max-width: 500px;
+    height: 80%;
+}
+
+.about-tea-box ul {
+    clear: both;
+    display: inline-block;
+    list-style: none;
+}
+
+.about-tea-box li {
+    padding-left: 50px;
+    padding-top: 5px;
+}
+
+.back-btn {
+    text-align: center;
+    margin: auto 25% auto 25%;
+}
+
+.back-btn a {
+    display: block;
+    line-height: 40px;
+    margin: auto 20px 20px 20px;
+    color: #ffffff;
+    background-color: #6b7b6e;
+    border-radius: 20px;
+    text-decoration: none;
+}
+.about-video {
+    text-align: center
+}
+
+.about-contents {
+    padding: 0 60px 10px 60px;
+    line-height: 25px
+}
+
+.about-types {
+    padding: 30px 70px 10px 40px;
+}
+
+.marker {
+    background:linear-gradient(transparent 60%, #b0ca71 60%);
+    opacity: 80%;
+}
+
+.line {
+    text-decoration: underline solid 2px #b0ca71;
+}

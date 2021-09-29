@@ -11,7 +11,7 @@
     <div class="test-home-parent">
         <div class="test-children-box"></div>
         <div class="opacity">
-            <img src="{{ asset('picture/tea-test.jpeg') }}" style="width: 100%; min-width: 1200px; min-height: 500px; padding: 50px 250px 0 200px; position: relative; z-index: 1;">
+            <img src="{{ asset('picture/project-tea/page-design/tea-test.jpeg') }}" style="width: 100%; min-width: 1200px; min-height: 500px; padding: 50px 250px 0 200px; position: relative; z-index: 1;">
         </div>
     </div>
     <!-- 診断 1 自分に合う紅茶-->

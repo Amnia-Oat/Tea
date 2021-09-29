@@ -30,6 +30,36 @@ class PostController extends Controller
         return view('home');
     }
     
+    public function login()
+    {
+        return view('user');
+    }
+    
+    public function about()
+    {
+        return view('about');
+    }
+    
+    public function teadiff()
+    {
+        return view('about_tea_diff');
+    }
+    
+    public function abouttea()
+    {
+        return view('about_tea');
+    }
+
+    public function aboutherb()
+    {
+        return view('about_herbtea');
+    }
+    
+    public function aboutgreentea()
+    {
+        return view('about_greentea');
+    }
+    
     // table, Model には数字を使わない - 中身が一目でわかるような名前をつけること
     // 数字だと内容がわかりづらいため、丁寧に記述する！
     // 診断画面
@@ -59,7 +89,7 @@ class PostController extends Controller
     }
     
     // ハーブティー診断の結果
-    public function herbResult(Mood $mood, $id)
+    public function herbResult(Mood $mood, $id, Request $request)
     {
         $mood = Mood::find($id);
         $herbteas = Mood::find($id)->herbteas;
@@ -93,14 +123,14 @@ class PostController extends Controller
         // ブログ内容
         $input = $request['blog'];
         
-        // 画像が投稿されれば、s3アップロード開始
-        if($image = $request->file('blogimage')){
-            // バケットの'myimage'フォルダへアップロード
+        if($request->hasFile('picture')){
+            // 画像が投稿されれば、s3アップロード開始
+            $image = $request->file('picture');
+            // バケットの'blogimage'フォルダへアップロード
             $path = Storage::disk('s3')->putFile('blogimage', $image, 'public');
             // アップロードした画像のフルパスを取得
             $blog->image_path = Storage::disk('s3')->url($path);
         }
-        dd($image);
         
         $blog->fill($input)->save();
         
